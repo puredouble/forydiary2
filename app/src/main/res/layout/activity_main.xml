@@ -5,19 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/defaultBackground"
+    android:id="@+id/container"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textview_main_message"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:text="Show Message"
-        app:layout_constraintBottom_toTopOf="@+id/menu_bottom"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="spread_inside" />
+<!--    <fragment-->
+<!--        android:id="@+id/calendarFragment"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:name="me.puredouble.forydiary2.fragment.CalendarFragment" />-->
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/menu_bottom"
@@ -30,7 +25,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_main_message"
         app:layout_constraintVertical_chainStyle="spread_inside"
         app:menu="@menu/menu_bottom" />
 
