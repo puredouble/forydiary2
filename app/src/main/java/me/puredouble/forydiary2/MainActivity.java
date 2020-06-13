@@ -5,26 +5,30 @@ import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import me.puredouble.forydiary2.callback.FragmentChangeCallback;
 import me.puredouble.forydiary2.fragment.AddFragment;
 import me.puredouble.forydiary2.fragment.CalendarFragment;
 import me.puredouble.forydiary2.fragment.MoreFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements FragmentChangeCallback {
 
     CalendarFragment calendarFragment;
     AddFragment addFragment;
     MoreFragment moreFragment;
+
+    final FragmentManager fragmentManager = getSupportFragmentManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final FragmentManager fragmentManager = getSupportFragmentManager();
+//        final FragmentManager fragmentManager = getSupportFragmentManager();
 //        calendarFragment = (CalendarFragment) fragmentManager.findFragmentById(R.id.calendarFragment);
         calendarFragment = new CalendarFragment();
         addFragment = new AddFragment();
@@ -57,4 +61,8 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+    @Override
+    public void onFragmentChange(Fragment fragment) {
+        fragmentManager.beginTransaction().replace(R.id.container, fragment).commit();
+    }
 }
