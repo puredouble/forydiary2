@@ -13,8 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
-import org.w3c.dom.Text;
-
 import java.time.LocalDate;
 
 import me.puredouble.forydiary2.R;
@@ -64,8 +62,7 @@ public class AddFragment extends Fragment {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
-                add2Fragment = new Add2Fragment(Emotion.HAPPY, localDate);
-                callback.onFragmentChange(add2Fragment);
+                moveToAdd2(Emotion.HAPPY);
             }
         });
 
@@ -74,8 +71,7 @@ public class AddFragment extends Fragment {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
-                add2Fragment = new Add2Fragment(Emotion.FUN, localDate);
-                callback.onFragmentChange(add2Fragment);
+                moveToAdd2(Emotion.FUN);
             }
         });
 
@@ -84,8 +80,7 @@ public class AddFragment extends Fragment {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
-                add2Fragment = new Add2Fragment(Emotion.RANDOM, localDate);
-                callback.onFragmentChange(add2Fragment);
+                moveToAdd2(Emotion.RANDOM);
             }
         });
 
@@ -94,8 +89,7 @@ public class AddFragment extends Fragment {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
-                add2Fragment = new Add2Fragment(Emotion.SAD, localDate);
-                callback.onFragmentChange(add2Fragment);
+                moveToAdd2(Emotion.SAD);
             }
         });
 
@@ -104,12 +98,17 @@ public class AddFragment extends Fragment {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
-                add2Fragment = new Add2Fragment(Emotion.ANGRY, localDate);
-                callback.onFragmentChange(add2Fragment);
+                moveToAdd2(Emotion.ANGRY);
             }
         });
 
         return rootView;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void moveToAdd2(Emotion emotion) {
+        add2Fragment = new Add2Fragment(emotion, localDate);
+        callback.onFragmentChange(add2Fragment);
     }
 
 }
